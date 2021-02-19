@@ -12,10 +12,10 @@ export default class SearchPage extends Component {
     }
 
     fetchChars = async () => {
-        const data = await request.get(`https://dizknee-express.herokuapp.com/characters`);
+        const data = await request.get(`https://rocky-refuge-35369.herokuapp.com/characters`);
 
         await this.setState({
-            chars: data.body.results,
+            chars: data.body,
         });
     }
     render() {
