@@ -1,0 +1,18 @@
+.item-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-block{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border: solid 1px black;
+    margin: 20px;
+}
+a:link{
+    color: blueviolet;
+    text-decoration: none;
+}
