@@ -7,10 +7,10 @@ export default class DetailPage extends Component {
     }
 
     componentDidMount = async () => {
-        const data = await request.get(`https://dizknee-express.herokuapp.com/characters/`);
+        const data = await request.get(`https://dizknee-express.herokuapp.com/characters/${this.props.match.params.name}`);
 
         await this.setState({
-            chosenCharacter: data.body.results.find(item => item.name === this.props.match.params.name),
+            chosenCharacter: data.body.results,
         });
     }
 
