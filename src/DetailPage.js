@@ -23,7 +23,7 @@ export default class DetailPage extends Component {
                     <img className='detail-img' alt='character' src={this.state.chosenCharacter.gif} />
                     <div>Movie: {this.state.chosenCharacter.movie}</div>
                     <div>Year of Movie: {this.state.chosenCharacter.movie_year}</div>
-                    <div>Species: {this.state.chosenCharacter.species}</div>
+                    <div>Species: {this.state.chosenCharacter.species_type}</div>
                     <div>Role: {this.state.chosenCharacter.role}</div>
                     <div>Special Power: {this.state.chosenCharacter.unique_power}</div>
                     <div> {this.state.chosenCharacter.hand_drawn ? 'This character was hand drawn!' : ''}</div>
