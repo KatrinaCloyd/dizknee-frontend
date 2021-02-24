@@ -10,6 +10,7 @@ import Header from './Header.js';
 import Header2 from './Header2.js';
 import DetailPage from './DetailPage.js';
 import Home from './Home.js'
+import NewListingPage from './NewListingPage.js'
 
 export default class App extends Component {
   render() {
@@ -33,6 +34,11 @@ export default class App extends Component {
               path="/search/:name"
               exact
               render={(routerProps) => <DetailPage {...routerProps} />}
+            />
+            <Route
+              path="/newItem"
+              exact
+              render={(routerProps) => <NewListingPage {...routerProps} />}
             />
           </Switch>
         </Router>

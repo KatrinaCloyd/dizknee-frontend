@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import request from 'superagent';
 import { Link } from 'react-router-dom';
+import Loading from './Loading.js';
 import './search.css';
 
 export default class SearchPage extends Component {
     state = {
-        chars: []
+        chars: [],
+        loading: false
     }
     componentDidMount = async () => {
+        await this.setState({ loading: true, });
         await this.fetchChars();
     }
 
@@ -16,6 +19,7 @@ export default class SearchPage extends Component {
 
         await this.setState({
             chars: data.body,
+            loading: false
         });
     }
     render() {
@@ -30,6 +34,7 @@ export default class SearchPage extends Component {
         return (
             <div>
                 <div className='item-list'>
+                    {this.state.loading && <Loading />}
                     {character}
                 </div>
             </div>

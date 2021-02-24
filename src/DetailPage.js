@@ -1,23 +1,30 @@
 import React, { Component } from 'react'
 import request from 'superagent';
+import Loading from './Loading.js';
 
 export default class DetailPage extends Component {
     state = {
-        chosenCharacter: {}
+        chosenCharacter: {},
+        loading: false
     }
 
     componentDidMount = async () => {
+        await this.setState({
+            loading: true
+        });
         const data = await request.get(`https://rocky-refuge-35369.herokuapp.com/characters/${this.props.match.params.name}`);
 
         await this.setState({
             chosenCharacter: data.body,
+            loading: false
         });
     }
 
     render() {
         return (
             <div>
-                <h2>Here is the detail page</h2>
+                <h2>Welcome to the Detail Page</h2>
+                {this.state.loading && <Loading />}
                 <div className='detail-block' >
                     <div className='char-name'>{this.state.chosenCharacter.name} </div>
                     <img className='detail-img' alt='character' src={this.state.chosenCharacter.gif} />

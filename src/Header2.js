@@ -5,11 +5,14 @@ export default class Header2 extends Component {
     render() {
         return (
             <div className='sub-header'>
-                <NavLink exact activeClassName="selected" to="/" className='link'>
+                <NavLink exact activeClassName="active" to="/" className='link'>
                     Home </NavLink>
 
-                <NavLink exact activeClassName="selected" to="/search" className='link'>
-                    Search </NavLink>
+                <NavLink exact activeClassName="active" to="/search" className='link'>
+                    List of Characters </NavLink>
+
+                <NavLink exact activeClassName="active" to="/newItem" className='link'>
+                    Add A Character </NavLink>
 
             </div>
         )
