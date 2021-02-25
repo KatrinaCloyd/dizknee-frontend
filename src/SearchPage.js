@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
-import request from 'superagent';
 import { Link } from 'react-router-dom';
 import Loading from './Loading.js';
 import './search.css';
+import { fetchChars } from './apiUtils.js';
 
 export default class SearchPage extends Component {
     state = {
         chars: [],
         loading: false
     }
+
     componentDidMount = async () => {
         await this.setState({ loading: true, });
-        await this.fetchChars();
-    }
-
-    fetchChars = async () => {
-        const data = await request.get(`https://rocky-refuge-35369.herokuapp.com/characters`);
-
+        const data = await fetchChars();
         await this.setState({
             chars: data.body,
             loading: false
         });
     }
+
     render() {
-        console.log(this.state.chars);
         const character = this.state.chars.map(char =>
             <Link to={`search/${char.name}`} className='item-block' key={char.name}>
                 <img className='char-img' alt='character' src={char.image} />

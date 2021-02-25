@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import request from 'superagent';
 import Loading from './Loading.js';
+import { fetchSingleChar } from './apiUtils.js';
 
 export default class DetailPage extends Component {
     state = {
@@ -12,7 +12,7 @@ export default class DetailPage extends Component {
         await this.setState({
             loading: true
         });
-        const data = await request.get(`https://rocky-refuge-35369.herokuapp.com/characters/${this.props.match.params.name}`);
+        const data = await fetchSingleChar(this.props.match.params.name);
 
         await this.setState({
             chosenCharacter: data.body,
