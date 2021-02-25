@@ -5,14 +5,14 @@ import './form.css'
 export default class NewListingPage extends Component {
     state = {
         name: '',
-        species_id: 1,
+        species_id: '',
         role: '',
         unique_power: '',
         movie: '',
         movie_year: '',
         hand_drawn: true,
-        image: '',
-        gif: ''
+        image: 'http://placekitten.com/200/300',
+        gif: 'http://placekitten.com/200/300'
     }
 
     handleNameChange = (e) => this.setState({ name: e.target.value })
@@ -24,13 +24,18 @@ export default class NewListingPage extends Component {
     handleDrawnChange = (e) => this.setState({ hand_drawn: !this.state.hand_drawn })
     handleImageChange = (e) => this.setState({ image: e.target.value })
     handleGifChange = (e) => this.setState({ gif: e.target.value })
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        await addNewChar(this.state);
+        this.props.history.push('/search');
+    }
 
     render() {
-        console.log(this.state);
         return (
             <div className='home'>
                 <h3>Here YOU Can create a New Charcter and add it to our Character Listings!</h3>
                 <form>
+                    <p>please note that every field MUST be filled out... </p>
                     <label>
                         Character Name:
                         <input value={this.state.name} onChange={this.handleNameChange} />
@@ -38,6 +43,7 @@ export default class NewListingPage extends Component {
                     <label>
                         Species:
                         <select value={this.state.species_id} onChange={this.handleSpeciesChange}>
+                            <option value=''> Choose One</option>
                             <option value='1'>Human</option>
                             <option value='2'>Animal</option>
                             <option value='3'>Talking Animal</option>
@@ -47,6 +53,7 @@ export default class NewListingPage extends Component {
                     <label>
                         Role:
                         <select value={this.state.role} onChange={this.handleRoleChange} >
+                            <option value=''> Choose One</option>
                             <option value='hero'>Hero</option>
                             <option value='villan'>Villan</option>
                             <option value='sidekick'>Sidekick</option>
@@ -74,13 +81,13 @@ export default class NewListingPage extends Component {
                     </label>
                     <label>
                         Link to an Image of this Character:
-                    <input value={this.state.image} onChange={this.handleImageChange} />
+                    <input value={this.state.image} onChange={this.handleImageChange} style={{ width: "300px" }} />
                     </label>
                     <label>
                         Link to a GIF of this Character:
-                    <input value={this.state.gif} onChange={this.handleGifChange} />
+                    <input value={this.state.gif} onChange={this.handleGifChange} style={{ width: "300px" }} />
                     </label>
-                    <button>Add Character!</button>
+                    <button onClick={this.handleSubmit} >Add Character!</button>
                 </form>
             </div>
         )

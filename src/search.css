@@ -29,3 +29,8 @@ a:link{
     max-width: 350px;
     padding: 5px;
 }
+.char-name{
+    font-size: 1.3em;
+
+    color: darkblue;
+}
