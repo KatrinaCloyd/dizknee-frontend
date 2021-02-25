@@ -66,6 +66,7 @@ export default class DetailPage extends Component {
     }
 
     render() {
+        console.log(this.state.upDatedCharacter);
         return (
             <div>
                 <h2>Welcome to the Detail Page</h2>
@@ -89,7 +90,7 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Species:
-                        <select value={this.state.chosenCharacter.species_id} onChange={this.handleSpeciesChange}>
+                        <select onChange={this.handleSpeciesChange}>
                                 <option value='1' selected={this.state.upDatedCharacter.species_type === 'human'}>Human</option>
                                 <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal'}>Animal</option>
                                 <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal'}>Talking Animal</option>
@@ -98,7 +99,8 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Role:
-                        <select value={this.state.chosenCharacter.role} onChange={this.handleRoleChange} >
+                        <select onChange={this.handleRoleChange} >
+                                <option value=''>Choose One</option>
                                 <option value='hero' selected={this.state.upDatedCharacter.role === 'hero'}>Hero</option>
                                 <option value='villan' selected={this.state.upDatedCharacter.role === 'villan'}>Villan</option>
                                 <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick'}>Sidekick</option>
