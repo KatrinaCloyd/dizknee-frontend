@@ -36,10 +36,10 @@ export async function updateChar(id, updatedChar) {
 
 export function speciesTypetoId(type) {
     if (type === 'human') {
-        return 1
+        return '1';
     } else if (type === 'animal') {
-        return 2
+        return '2';
     } else if (type === 'talking animal') {
-        return 3
-    } else return 4
+        return '3';
+    } else return '4';
 }

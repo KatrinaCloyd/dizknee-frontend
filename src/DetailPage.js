@@ -43,7 +43,14 @@ export default class DetailPage extends Component {
             upDatedCharacter: data.body,
             loading: false
         });
+        const spcId = await speciesTypetoId(this.state.chosenCharacter.species_type);
+
+        await this.setState({
+            upDatedCharacter:
+                { ...this.state.upDatedCharacter, species_id: Number(spcId) }
+        });
     }
+
     handleNameChange = (e) => this.setState({ upDatedCharacter: { ...this.state.upDatedCharacter, name: e.target.value } });
     handleSpeciesChange = (e) => this.setState({ upDatedCharacter: { ...this.state.upDatedCharacter, species_id: Number(e.target.value) } })
     handleRoleChange = (e) => this.setState({ upDatedCharacter: { ...this.state.upDatedCharacter, role: e.target.value } })
@@ -56,6 +63,9 @@ export default class DetailPage extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        if (this.state.upDatedCharacter.species_id === 0) {
+            this.setState({ upDatedCharacter: { ...this.state.upDatedCharacter, species_id: Number(e.target.value) } })
+        }
         await updateChar(this.state.upDatedCharacter.id, this.state.upDatedCharacter);
         this.props.history.push('/search');
     }
@@ -68,6 +78,7 @@ export default class DetailPage extends Component {
 
     render() {
         console.log(this.state.upDatedCharacter);
+
         return (
             <div>
                 <h2>Welcome to the Detail Page</h2>
@@ -92,7 +103,6 @@ export default class DetailPage extends Component {
                         <label>
                             Species:
                         <select value={this.state.upDatedCharacter.species_id} onChange={this.handleSpeciesChange}>
-                                {/* need to get an id from the type because it dose not START with a id */}
                                 <option value=''>MUST CHOOSE ONE</option>
                                 <option value='1'>Human</option>
                                 <option value='2'>Animal</option>
@@ -110,25 +120,6 @@ export default class DetailPage extends Component {
                                 <option value='henchman' >Henchman</option>
                             </select>
                         </label>
-                        {/* <label>
-                            Species:
-                        <select onChange={this.handleSpeciesChange}>
-                                <option value='1' selected={this.state.upDatedCharacter.species_type === 'human' ? true : false}>Human</option>
-                                <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal' ? true : false}>Animal</option>
-                                <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal' ? true : false}>Talking Animal</option>
-                                <option value='4' selected={this.state.upDatedCharacter.species_type === 'mythical being' ? true : false} >Mythical Being</option>
-                            </select>
-                        </label>
-                        <label>
-                            Role:
-                        <select onChange={this.handleRoleChange} >
-                                <option value=''>Choose One</option>
-                                <option value='hero' selected={this.state.upDatedCharacter.role === 'hero' ? true : false}>Hero</option>
-                                <option value='villan' selected={this.state.upDatedCharacter.role === 'villan' ? true : false}>Villan</option>
-                                <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick' ? true : false}>Sidekick</option>
-                                <option value='henchman' selected={this.state.upDatedCharacter.role === 'henchman' ? true : false}>Henchman</option>
-                            </select>
-                        </label> */}
                         <label>
                             Unique Power:
                     <input value={this.state.upDatedCharacter.unique_power} onChange={this.handlePowerChange} />
