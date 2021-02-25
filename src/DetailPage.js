@@ -89,22 +89,20 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Species:
-                        <select value='' onChange={this.handleSpeciesChange}>
-                                <option value=''> Choose One</option>
-                                <option value='1'>Human</option>
-                                <option value='2'>Animal</option>
-                                <option value='3'>Talking Animal</option>
-                                <option value='4'>Mythical Being</option>
+                        <select value={this.state.chosenCharacter.species_id} onChange={this.handleSpeciesChange}>
+                                <option value='1' selected={this.state.upDatedCharacter.species_type === 'human'}>Human</option>
+                                <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal'}>Animal</option>
+                                <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal'}>Talking Animal</option>
+                                <option value='4' selected={this.state.upDatedCharacter.species_type === 'mythical being'} >Mythical Being</option>
                             </select>
                         </label>
                         <label>
                             Role:
-                        <select value='' onChange={this.handleRoleChange} >
-                                <option value=''> Choose One</option>
-                                <option value='hero'>Hero</option>
-                                <option value='villan'>Villan</option>
-                                <option value='sidekick'>Sidekick</option>
-                                <option value='henchman'>Henchman</option>
+                        <select value={this.state.chosenCharacter.role} onChange={this.handleRoleChange} >
+                                <option value='hero' selected={this.state.upDatedCharacter.role === 'hero'}>Hero</option>
+                                <option value='villan' selected={this.state.upDatedCharacter.role === 'villan'}>Villan</option>
+                                <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick'}>Sidekick</option>
+                                <option value='henchman' selected={this.state.upDatedCharacter.role === 'henchman'}>Henchman</option>
                             </select>
                         </label>
                         <label>
