@@ -72,7 +72,7 @@ export default class DetailPage extends Component {
                 {this.state.loading && <Loading />}
                 <div className='item-list'>
                     <div className='detail-block' >
-                        <div className='char-name'>{this.state.chosenCharacter.name} </div>
+                        <div className='char-name'> {this.state.chosenCharacter.name}</div>
                         <img className='detail-img' alt='character' src={this.state.chosenCharacter.gif} />
                         <div>Movie: {this.state.chosenCharacter.movie}</div>
                         <div>Year of Movie: {this.state.chosenCharacter.movie_year}</div>
