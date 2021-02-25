@@ -16,6 +16,7 @@ export default class DetailPage extends Component {
             image: '',
             gif: ''
         },
+
         upDatedCharacter: {
             name: '',
             species_id: 0,
@@ -91,6 +92,26 @@ export default class DetailPage extends Component {
                         <label>
                             Species:
                         <select onChange={this.handleSpeciesChange}>
+                                <option value=''>MUST CHOOSE ONE</option>
+                                <option value='1'>Human</option>
+                                <option value='2'>Animal</option>
+                                <option value='3'>Talking Animal</option>
+                                <option value='4' >Mythical Being</option>
+                            </select>
+                        </label>
+                        <label>
+                            Role:
+                        <select onChange={this.handleRoleChange} >
+                                <option value=''>MUST CHOOSE ONE</option>
+                                <option value='hero' >Hero</option>
+                                <option value='villan' >Villan</option>
+                                <option value='sidekick' >Sidekick</option>
+                                <option value='henchman' >Henchman</option>
+                            </select>
+                        </label>
+                        {/* <label>
+                            Species:
+                        <select onChange={this.handleSpeciesChange}>
                                 <option value='1' selected={this.state.upDatedCharacter.species_type === 'human'}>Human</option>
                                 <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal'}>Animal</option>
                                 <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal'}>Talking Animal</option>
@@ -106,7 +127,7 @@ export default class DetailPage extends Component {
                                 <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick'}>Sidekick</option>
                                 <option value='henchman' selected={this.state.upDatedCharacter.role === 'henchman'}>Henchman</option>
                             </select>
-                        </label>
+                        </label> */}
                         <label>
                             Unique Power:
                     <input value={this.state.upDatedCharacter.unique_power} onChange={this.handlePowerChange} />
@@ -138,6 +159,7 @@ export default class DetailPage extends Component {
                         <button onClick={this.handleDelete} className='danger' >- - - - - DANGER! - - - - -  DELETE {this.state.chosenCharacter.name} </button>
                     </form>
                 </div>
+
             </div >
         )
     }
