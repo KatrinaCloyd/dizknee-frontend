@@ -91,7 +91,8 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Species:
-                        <select onChange={this.handleSpeciesChange}>
+                        <select value={this.state.upDatedCharacter.species_id} onChange={this.handleSpeciesChange}>
+                                {/* need to get an id from the type because it dose not START with a id */}
                                 <option value=''>MUST CHOOSE ONE</option>
                                 <option value='1'>Human</option>
                                 <option value='2'>Animal</option>
@@ -101,7 +102,7 @@ export default class DetailPage extends Component {
                         </label>
                         <label>
                             Role:
-                        <select onChange={this.handleRoleChange} >
+                        <select value={this.state.upDatedCharacter.role} onChange={this.handleRoleChange} >
                                 <option value=''>MUST CHOOSE ONE</option>
                                 <option value='hero' >Hero</option>
                                 <option value='villan' >Villan</option>
@@ -112,20 +113,20 @@ export default class DetailPage extends Component {
                         {/* <label>
                             Species:
                         <select onChange={this.handleSpeciesChange}>
-                                <option value='1' selected={this.state.upDatedCharacter.species_type === 'human'}>Human</option>
-                                <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal'}>Animal</option>
-                                <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal'}>Talking Animal</option>
-                                <option value='4' selected={this.state.upDatedCharacter.species_type === 'mythical being'} >Mythical Being</option>
+                                <option value='1' selected={this.state.upDatedCharacter.species_type === 'human' ? true : false}>Human</option>
+                                <option value='2' selected={this.state.upDatedCharacter.species_type === 'animal' ? true : false}>Animal</option>
+                                <option value='3' selected={this.state.upDatedCharacter.species_type === 'talking animal' ? true : false}>Talking Animal</option>
+                                <option value='4' selected={this.state.upDatedCharacter.species_type === 'mythical being' ? true : false} >Mythical Being</option>
                             </select>
                         </label>
                         <label>
                             Role:
                         <select onChange={this.handleRoleChange} >
                                 <option value=''>Choose One</option>
-                                <option value='hero' selected={this.state.upDatedCharacter.role === 'hero'}>Hero</option>
-                                <option value='villan' selected={this.state.upDatedCharacter.role === 'villan'}>Villan</option>
-                                <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick'}>Sidekick</option>
-                                <option value='henchman' selected={this.state.upDatedCharacter.role === 'henchman'}>Henchman</option>
+                                <option value='hero' selected={this.state.upDatedCharacter.role === 'hero' ? true : false}>Hero</option>
+                                <option value='villan' selected={this.state.upDatedCharacter.role === 'villan' ? true : false}>Villan</option>
+                                <option value='sidekick' selected={this.state.upDatedCharacter.role === 'sidekick' ? true : false}>Sidekick</option>
+                                <option value='henchman' selected={this.state.upDatedCharacter.role === 'henchman' ? true : false}>Henchman</option>
                             </select>
                         </label> */}
                         <label>
