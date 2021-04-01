@@ -1,0 +1,25 @@
+.main-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 160px;
+    background-color: rgb(181, 126, 212);
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+}
+.sub-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aqua;
+    height: 50px;
+}
+h2{
+    text-align: center;
+}
+
+h6{
+    text-align: right;
+}
